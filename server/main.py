@@ -12,6 +12,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from routes.news import router as news_router
 from routes.analysis import router as analysis_router
 from routes.trade import router as trade_router
+from routes.predict import router as predict_router
 
 
 @asynccontextmanager
@@ -41,6 +42,7 @@ app.add_middleware(
 app.include_router(news_router)
 app.include_router(analysis_router)
 app.include_router(trade_router)
+app.include_router(predict_router)
 
 
 @app.get("/health")

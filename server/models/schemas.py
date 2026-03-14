@@ -24,21 +24,31 @@ class NewsItem(BaseModel):
     thumbnail: Optional[str] = None
 
 
-class TimeHorizonAnalysis(BaseModel):
-    direction: Sentiment
+class AssetHorizon(BaseModel):
+    recommendation: str              # "BUY" | "SELL" | "HOLD" | "WATCH"
+    expected_move_pct: str           # e.g. "+3 to +6" or "-5 to -10"
     confidence: float = Field(ge=0.0, le=1.0)
-    rationale: str
+    thesis: str                      # one sentence rationale
+
+
+class ButterflyAsset(BaseModel):
+    ticker: str
+    name: str
+    asset_type: str                  # "crypto" | "stock" | "commodity" | "forex" | "index"
+    impact_reason: str               # why this asset is specifically affected
+    short_term: AssetHorizon
+    mid_term: AssetHorizon
+    long_term: AssetHorizon
 
 
 class ButterflyAnalysis(BaseModel):
     news_id: str
-    affected_assets: list[str]
     primary_sentiment: Sentiment
     already_priced_in: bool
-    short_horizon: TimeHorizonAnalysis
-    mid_horizon: TimeHorizonAnalysis
-    long_horizon: TimeHorizonAnalysis
-    causal_explanation: str = Field(max_length=600)
+    summary: str
+    causal_chain: str
+    key_risk: str
+    affected_assets: list[ButterflyAsset]
 
 
 class TradeRequest(BaseModel):

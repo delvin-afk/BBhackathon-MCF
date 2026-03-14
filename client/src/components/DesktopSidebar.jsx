@@ -1,23 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import useAppStore from '../store/useAppStore'
-import { fetchAccount } from '../services/api'
 
 export default function DesktopSidebar() {
-  const { feed, curIdx, setCurIdx, setScreen } = useAppStore()
-  const [account, setAccount] = useState(null)
-  const [tick, setTick] = useState(0)
+  const { feed, curIdx, setCurIdx, setScreen, account, loadAccount } = useAppStore()
 
   useEffect(() => {
-    fetchAccount().then(setAccount).catch(() => {})
-    const t = setInterval(() => setTick(n => n + 1), 30000)
+    loadAccount()
+    const t = setInterval(() => loadAccount(), 30000)
     return () => clearInterval(t)
   }, [])
-
-  // refetch account every 30s
-  useEffect(() => {
-    if (tick === 0) return
-    fetchAccount().then(setAccount).catch(() => {})
-  }, [tick])
 
   function selectCard(idx) {
     setCurIdx(idx)
@@ -100,7 +91,7 @@ export default function DesktopSidebar() {
       {/* Footer */}
       <div className="dt-footer">
         <span>Powered by</span>
-        <span className="dt-footer-claude">Claude 3.5 Sonnet</span>
+        <span className="dt-footer-claude">Claude Sonnet 4.6</span>
         <span>+ Liquid Exchange</span>
       </div>
     </aside>

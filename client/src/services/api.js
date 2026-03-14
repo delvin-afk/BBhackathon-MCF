@@ -27,3 +27,8 @@ export const fetchTicker = (asset) =>
 
 export const fetchMarkets = () =>
   api.get('/trade/markets').then(r => r.data)
+
+export const fetchPredictMarkets = ({ headline, assets = [], limit = 4 }) =>
+  api.get('/predict/related', {
+    params: { headline, assets: assets.join(','), limit },
+  }).then(r => r.data)
