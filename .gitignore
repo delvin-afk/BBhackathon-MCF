@@ -1,0 +1,18 @@
+# Environment — NEVER commit real keys
+.env
+*.env
+
+# Python
+server/.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Node
+client/node_modules/
+client/dist/
+client/.vite/
+
+# OS
+.DS_Store
