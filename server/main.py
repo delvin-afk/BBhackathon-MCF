@@ -30,7 +30,10 @@ app = FastAPI(
 )
 
 # CORS — allow Vite dev server + production origins
-origins = os.environ.get("CORS_ORIGINS", "http://localhost:5173").split(",")
+origins = os.environ.get(
+    "CORS_ORIGINS",
+    "http://localhost:5173,http://localhost:3000"
+).split(",")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
