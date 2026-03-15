@@ -10,8 +10,8 @@ import re
 GAMMA_BASE = "https://gamma-api.polymarket.com"
 LIQUID_PREDICT_URL = "https://app.tryliquid.xyz/predict"
 
-# Tag slugs to fetch — covers finance, crypto, economics
-FINANCE_TAGS = ["crypto", "finance", "economy", "stocks"]
+# Tag slugs to fetch — finance, crypto, and geopolitical/commodity tags
+FINANCE_TAGS = ["crypto", "finance", "economy", "stocks", "oil", "iran", "middle-east", "commodities", "geopolitics", "politics"]
 
 # Keywords to pull from assets + headline for relevance matching
 ASSET_KEYWORDS = {
@@ -35,6 +35,8 @@ MACRO_KEYWORDS = [
     "trump", "election", "tariff", "trade", "gdp",
     "bank", "debt", "credit", "lbo", "earnings",
     "gold", "bitcoin", "crypto", "oil", "energy",
+    "hormuz", "strait", "nuclear", "israel", "strike", "missile",
+    "ceasefire", "sanctions", "opec", "crude", "tanker",
 ]
 
 

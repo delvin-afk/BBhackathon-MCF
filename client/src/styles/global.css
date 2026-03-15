@@ -250,6 +250,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
 
 /* ── Predict Markets Section ── */
 .predict-section{background:var(--sf);border-radius:var(--rmd);border:1px solid rgba(124,58,237,0.25);overflow:hidden}
+.predict-empty{padding:16px;font-size:12px;color:var(--t3);text-align:center}
 .predict-header{display:flex;align-items:center;justify-content:space-between;padding:10px 13px 8px}
 .predict-title{font-family:var(--fd);font-size:12px;font-weight:800;color:#A78BFA;letter-spacing:0.3px}
 .predict-sub{font-size:10px;color:var(--t3)}
@@ -367,6 +368,13 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
   text-transform:uppercase;flex-shrink:0;
 }
 .dt-count{font-size:10px;font-weight:600;color:var(--pu);background:var(--pu-d);padding:2px 8px;border-radius:20px}
+.dt-search-wrap{display:flex;align-items:center;gap:8px;margin:0 12px 8px;background:var(--sf);border:1px solid var(--bd2);border-radius:10px;padding:7px 12px;flex-shrink:0}
+.dt-search-icon{font-size:15px;color:var(--t3);flex-shrink:0}
+.dt-search{flex:1;background:none;border:none;outline:none;color:#ffffff;font-size:12px;min-width:0}
+.dt-search::placeholder{color:var(--t3)}
+.dt-search-clear{font-size:11px;color:var(--t3);cursor:pointer;flex-shrink:0;padding:2px 4px}
+.dt-search-clear:hover{color:var(--t2)}
+.dt-no-results{padding:20px 16px;font-size:12px;color:var(--t3);text-align:center}
 
 /* News list */
 .dt-news-list{
